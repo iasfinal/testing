@@ -15,7 +15,7 @@
 
 <service>
 	<class_name>ReportingService</class_name>
-    <jar_name>reporting_service</jar_name>
+    <jar_name>reporting_service.jar</jar_name>
     <interface_file>reportGen_adaptor</interface_file>
 </service>
 </services>
