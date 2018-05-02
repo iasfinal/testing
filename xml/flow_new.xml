@@ -1,0 +1,52 @@
+<?xml version = "1.0"?>
+<!-- Take this file for now as final, if any change is there
+	 it will be communicated -->
+
+<workflows>
+
+   <!-- checking for temp, and concerning for bp-->
+   <workflow id = "_temp">
+	    <service>heat_up</service>
+	    <service>cool_down</service>
+	    <next_workflow_id>_bp</next_workflow_id>
+      <required_sensor>sensor_1</required_sensor>
+      <required_sensor>sensor_2</required_sensor>
+   </workflow>
+
+
+   <!-- checking for bp, and concerning for temp-->
+   <workflow id = "_bp">
+	    <service>take_high_medicine</service>
+	    <service>take_low_medicine</service>
+	    <next_workflow_id>_temp</next_workflow_id>
+      <required_sensor>sensor_1</required_sensor>
+      <required_sensor>sensor_3</required_sensor>
+   </workflow>
+
+   <!-- checking for oxygen level and informing doctor -->
+   <workflow id = "_oxygen">
+       <service>give_oxygen</service>
+       <service>normal_oxygen</service>
+       <next_workflow_id>_bp</next_workflow_id>
+      <required_sensor>sensor_2</required_sensor>
+      <required_sensor>sensor_3</required_sensor>
+   </workflow>
+
+   <!-- checking for both the conditions-->
+   <workflow id = "_triplet">
+	    <service>call_doctor</service>
+	    <next_workflow_id>_recheck</next_workflow_id>
+      <required_sensor>sensor_1</required_sensor>
+      <required_sensor>sensor_3</required_sensor>
+   </workflow>
+
+   <!-- Re-checking for both the conditions-->
+   <workflow id = "_recheck">
+	    <service>recheck_condition</service>
+	    <next_workflow_id>_temp</next_workflow_id>
+      <required_sensor>sensor_2</required_sensor>
+      <required_sensor>sensor_3</required_sensor>
+   </workflow>
+
+
+</workflows>
