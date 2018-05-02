@@ -12,4 +12,10 @@
     <jar_name>Non_invasive_services.jar</jar_name>
     <interface_file>Check_vitals_interface</interface_file>
 </service>
+
+<service>
+	<class_name>ReportingService</class_name>
+    <jar_name>reporting_service</jar_name>
+    <interface_file>reportGen_adaptor</interface_file>
+</service>
 </services>
